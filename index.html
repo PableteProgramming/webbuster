@@ -5,7 +5,8 @@
 
 	    	<!-- Bootstrap 4 css and javascript -->
 	    	<link rel="stylesheet" href="css/addons/bootstrap.min.css">
-	    	<script src="js/addons/jquery.slim.min.js"></script>
+		<script src="js/addons/bsfileinput.min.js"></script>
+	    	<script src="js/addons/jquery.slim.js"></script>
 		<script src="js/addons/popper.min.js"></script>
 		<script src="js/addons/bootstrap.min.js"></script>
 	    	<!-- End of Bootstrap 4 css and javascript -->		
@@ -31,7 +32,28 @@
 						<button class="btn btn-outline-success" onclick="Search()" type="button">Generate</button>
   					</div>
 				</div>
+				<h2 class="display-6">Please input filename with extensions</h2>
+				<div class="custom-file">
+    					<input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+    					<label class="custom-file-label" for="inputGroupFile04" style="text-align:left;">Choose file</label>
+  				</div>	
 				<p>This is not working yet but I'm working on it</p>
+				<input type="file" name="inputfile" id="inputfile">
+    				<br>
+   
+    				<pre id="output"></pre>
+      
+    				<script type="text/javascript">
+        				document.getElementById('inputfile').addEventListener('change', function() {
+              
+            					var fr=new FileReader();
+            					fr.onload=function(){
+                					document.getElementById('output').textContent=fr.result;
+            					}
+              	
+            					fr.readAsText(this.files[0]);
+        				})
+    				</script>
 				<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 			</div>
 		</div>
